@@ -14,7 +14,8 @@ public class AImpl implements A
     public static void main( String[] args )
     {
         ApplicationContext ctx=new ClassPathXmlApplicationContext("bean.xml");
-        AImpl a=ctx.getBean(AImpl.class);
+        AImpl a=ctx.getBean(AImpl.class);  //错误示例
+        //A a=ctx.getBean(A.class);改成这样就正确了
         a.doing();
     }
 

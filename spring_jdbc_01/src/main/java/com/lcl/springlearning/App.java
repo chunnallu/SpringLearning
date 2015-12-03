@@ -22,17 +22,18 @@ import org.springframework.stereotype.Component;
 public class App 
 {
 	@Autowired
-	private JdbcDao jdbcDao;
+	private JdbcTemplate jdbcTemplate;
 	
     public static void main( String[] args )
     {
     	ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
     	App app = (App) ctx.getBean("app");
-    	JdbcTemplate template = app.getJdbcDao().getJdbcTemplate();
+    	JdbcTemplate template = app.getJdbcTemplate();
     	final List<Long> ids = new ArrayList<Long>();
-    	for(long i=25879 ;i< 80000 ; i=i+1){
+    	/*for(long i=25879 ;i< 80000 ; i=i+1){
     		ids.add(i);
-    	}
+    	}*/
+    	ids.add((long) 8002);
     	template.batchUpdate("insert into b(id) values(?)", new BatchPreparedStatementSetter() {
 			
 			@Override
@@ -47,14 +48,13 @@ public class App
 		});
     }
 
-	public JdbcDao getJdbcDao() {
-		return jdbcDao;
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
 	}
 
-	public void setJdbcDao(JdbcDao jdbcDao) {
-		this.jdbcDao = jdbcDao;
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
-    
     
 }

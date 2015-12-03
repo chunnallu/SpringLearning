@@ -30,8 +30,9 @@ public class App
     	App app = (App) ctx.getBean("app");
     	JdbcTemplate template = app.getJdbcDao().getJdbcTemplate();
     	final List<Long> ids = new ArrayList<Long>();
-    	ids.add((long) 8001);
-    	//template.execute("insert into a(id) values(1)");
+    	for(long i=25879 ;i< 80000 ; i=i+1){
+    		ids.add(i);
+    	}
     	template.batchUpdate("insert into b(id) values(?)", new BatchPreparedStatementSetter() {
 			
 			@Override

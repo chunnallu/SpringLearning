@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AImpl implements A
+public class AImpl
 {
     public void doing() {
         System.out.println("hello");
@@ -15,7 +15,7 @@ public class AImpl implements A
     {
         ApplicationContext ctx=new ClassPathXmlApplicationContext("bean.xml");
         AImpl a=ctx.getBean(AImpl.class);  //错误示例
-        //A a=ctx.getBean(A.class);改成这样就正确了
+        //A a=ctx.getBean(A.class);//改成这样就正确了
         a.doing();
     }
 

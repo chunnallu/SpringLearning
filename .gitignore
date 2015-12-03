@@ -57,3 +57,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties
+.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml
+.metadata/.plugins/org.eclipse.jst.jsp.core/taglibindex/729626639.dat
